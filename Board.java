@@ -54,6 +54,14 @@ public class Board {
         return false;
     }
 
+    public boolean tryprotectedPlaceBlock(int team, Position position){
+        if(board[position.getX()][position.getY()] == -1 && castRays(team, position, false))  {
+            castRays(team, position, true);
+            return true;
+        }
+        return false;
+    }
+
     private boolean replaceBlock(int team,Position position) {
         if(board[position.getX()][position.getY()] == (1 - team)) return placeBlock(team, position);
         return false;
@@ -116,6 +124,6 @@ public class Board {
     }
 
     public static void main(String[] args) {
-        new Board(new UserTurn(0),new UserTurn(1));
+        new Board(new UserTurn(0),new AuTurn(1));
     }
 }

@@ -16,7 +16,7 @@ public class UserTurn extends Turn{
     public void onTurn() {
         while (true) { //Nicht gut
             System.out.print(String.valueOf(team) + ": ");
-            String line = input.nextLine();
+            String line = input.nextLine(); //Eingabe für Spieler
             boolean bol = Board.Board.protectedPlaceBlock(team, new Position(Integer.parseInt(line.substring(1,2)), Integer.parseInt(line.substring(0,1))));
             if(bol) break;
         }

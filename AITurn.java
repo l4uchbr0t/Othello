@@ -29,8 +29,19 @@ public class AITurn extends Turn {
     @Override
     public void onTurn() {
         Board b = board.getBoard();
-        for (Position p: pos) {
-            if(b.castRays)
+        while (pos.get(1) != null) {
+            if (b.tryProtectedPlaceBlock(team, p)) {
+                if(p == pos.get(0)) {
+                    // nichts tun
+                } else {
+                    if (squareScores[p.getX()][p.getY()] <= squareScores[pos.get(0).getX()][pos.get(0).getY()]) { //prüfen ob 1 höher als 0
+                        pos.remove(1);
+                    }else {
+                        pos.remove(p);
+                    }
+                }
+            }
         }
+        Board.Board.protectedPlaceBlock(team, pos.get(0))
     }
 }

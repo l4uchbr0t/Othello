@@ -7,5 +7,6 @@ public abstract class Turn {
         this.team = team;
     }
 
-    public abstract void onTurn();
+    public abstract void onTurn(); //was beim Zug zu tun ist
+
 }
