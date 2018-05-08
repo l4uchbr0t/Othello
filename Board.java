@@ -1,3 +1,4 @@
+
 package othello.system;
 import java.util.ArrayList;
 
@@ -9,7 +10,7 @@ public class Board {
     Turn whiteTurn, blackTurn;
 
 
-    public Board (UserTurn whiteTurn, UserTurn blackTurn) {
+    public Board (Turn whiteTurn, Turn blackTurn) {
         this.whiteTurn = whiteTurn;
         this.blackTurn = blackTurn;
         board = new int[8][8];
@@ -54,9 +55,9 @@ public class Board {
         return false;
     }
 
-    public boolean tryprotectedPlaceBlock(int team, Position position){
+    public boolean tryProtectedPlaceBlock(int team, Position position){
         if(board[position.getX()][position.getY()] == -1 && castRays(team, position, false))  {
-            castRays(team, position, true);
+            //castRays(team, position, true);
             return true;
         }
         return false;
@@ -119,11 +120,11 @@ public class Board {
         }
     }
 
-    public Board getBoard(){
-        return board;
+    public static Board getBoard(){
+        return Board;
     }
 
     public static void main(String[] args) {
-        new Board(new UserTurn(0),new AuTurn(1));
+        new Board(new UserTurn(0),new AITurn(1));
     }
 }

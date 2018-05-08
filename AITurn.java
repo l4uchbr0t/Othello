@@ -1,4 +1,5 @@
 package othello.system;
+import java.util.ArrayList;
 
 public class AITurn extends Turn {
 
@@ -12,14 +13,14 @@ public class AITurn extends Turn {
                     {-1, -10, 1, 1, 1, 1, -10, -1},
                     {50, -1, 5, 2, 2, 5, -1, 50}};
 
-    private ArrayList<Position> pos;
+    private ArrayList<Position> pos = new ArrayList<Position>();
     
     
     
     public AITurn(int team) {
         super(team);
-        for (int i = 0, i < 9, i++) {
-            for(int j = 0, j < 9, j++){
+        for (int i = 0; i < 9; i++) {
+            for(int j = 0; j < 9; j++){
                 pos.add(new Position(i, j));
             }
         }
@@ -28,20 +29,21 @@ public class AITurn extends Turn {
 
     @Override
     public void onTurn() {
-        Board b = board.getBoard();
-        while (pos.get(1) != null) {
-            if (b.tryProtectedPlaceBlock(team, p)) {
-                if(p == pos.get(0)) {
-                    // nichts tun
-                } else {
-                    if (squareScores[p.getX()][p.getY()] <= squareScores[pos.get(0).getX()][pos.get(0).getY()]) { //prüfen ob 1 höher als 0
+        Board b = Board.getBoard();
+        if(b.tryProtectedPlaceBlock(team, pos.get(0))){      
+            while (pos.get(1) != null) {
+                if (b.tryProtectedPlaceBlock(team, pos.get(1))) {
+                    if (squareScores[pos.get(1).getX()][pos.get(1).getY()] <= squareScores[pos.get(0).getX()][pos.get(0).getY()]) { //prüfen ob 1 höher als 0
                         pos.remove(1);
                     }else {
-                        pos.remove(p);
+                        pos.remove(0);
                     }
                 }
             }
+            Board.Board.protectedPlaceBlock(team, pos.get(0));
+        }else{
+            pos.remove(0);
+            onTurn();
         }
-        Board.Board.protectedPlaceBlock(team, pos.get(0))
     }
 }
