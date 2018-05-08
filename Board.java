@@ -111,6 +111,10 @@ public class Board {
         }
     }
 
+    public Board getBoard(){
+        return board;
+    }
+
     public static void main(String[] args) {
         new Board(new UserTurn(0),new UserTurn(1));
     }
