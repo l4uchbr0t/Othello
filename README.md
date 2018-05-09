@@ -1,2 +1,0 @@
-# Othello
-Seminararbeit Othello
