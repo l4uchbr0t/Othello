@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2018-01-29" view-index="0" gantt-divider-location="521" resource-divider-location="300" version="2.8.5" locale="de">
+    <description/>
+    <view zooming-state="default:7" id="gantt-chart">
+        <field id="tpd3" name="Vorgang" width="256" order="0"/>
+        <field id="tpd4" name="Anfang" width="131" order="1"/>
+        <field id="tpd5" name="Ende" width="130" order="2"/>
+        <option id="color.recent"><![CDATA[#33cc00 #00cc00]]></option>
+    </view>
+    <view id="resource-table">
+        <field id="0" name="Ressource" width="210" order="0"/>
+        <field id="1" name="Rolle" width="86" order="1"/>
+    </view>
+    <!-- -->
+    <calendars>
+        <day-types>
+            <day-type id="0"/>
+            <day-type id="1"/>
+            <default-week id="1" name="default" sun="1" mon="0" tue="0" wed="0" thu="0" fri="0" sat="1"/>
+            <only-show-weekends value="false"/>
+            <overriden-day-types/>
+            <days/>
+        </day-types>
+    </calendars>
+    <tasks empty-milestones="true">
+        <taskproperties>
+            <taskproperty id="tpd0" name="type" type="default" valuetype="icon"/>
+            <taskproperty id="tpd1" name="priority" type="default" valuetype="icon"/>
+            <taskproperty id="tpd2" name="info" type="default" valuetype="icon"/>
+            <taskproperty id="tpd3" name="name" type="default" valuetype="text"/>
+            <taskproperty id="tpd4" name="begindate" type="default" valuetype="date"/>
+            <taskproperty id="tpd5" name="enddate" type="default" valuetype="date"/>
+            <taskproperty id="tpd6" name="duration" type="default" valuetype="int"/>
+            <taskproperty id="tpd7" name="completion" type="default" valuetype="int"/>
+            <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
+            <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
+        </taskproperties>
+        <task id="7" name="Spielmodus: Spieler gegen Spieler" color="#33cc00" meeting="false" start="2018-03-12" duration="26" complete="100" expand="true">
+            <task id="10" name="Spielverlauf" color="#33cc00" meeting="false" start="2018-03-12" duration="14" complete="100" expand="true"/>
+            <task id="11" name="Gewinnalgorithmus" color="#33cc00" meeting="false" start="2018-03-30" duration="12" complete="100" expand="true"/>
+        </task>
+        <task id="38" name="1 gegen 1 fertiggestellt" color="#33cc00" meeting="true" start="2018-04-17" duration="0" complete="100" expand="true">
+            <notes><![CDATA[Prototyp 1: 
+Spielbares Othello-Spiel.
+Spielbar durch 2 Personen.
+Veranschaulichung und Eingabe über Konsole (Textausgabe).]]></notes>
+        </task>
+        <task id="12" name="Spielmodus: KI-Stufe 1" color="#33cc00" meeting="false" start="2018-04-17" duration="28" complete="100" expand="true">
+            <depend id="40" type="2" difference="0" hardness="Strong"/>
+            <task id="14" name="Setz-Algorithmus" color="#33cc00" meeting="false" start="2018-04-17" duration="28" complete="100" expand="true"/>
+        </task>
+        <task id="40" name="KI-Stufe 1 fertiggestellt" color="#33cc00" meeting="true" start="2018-05-25" duration="0" complete="0" expand="true">
+            <notes><![CDATA[Prototyp 3:
+Einführung der ersten Schwierigkeit von Spieler gegen Computer-Modus.
+Noch nicht entschieden, ob erst schwieriger oder einfacher Schwierigkeitsgrad.
+
+Auch spielbar über grafische Oberfläche.]]></notes>
+        </task>
+        <task id="13" name="Spielmodus: KI-Stufe 2" color="#000000" meeting="false" start="2018-05-28" duration="28" complete="0" expand="true">
+            <task id="15" name="Setz-Algorithmus" color="#8cb6ce" meeting="false" start="2018-05-28" duration="28" complete="0" expand="true">
+                <depend id="42" type="2" difference="0" hardness="Strong"/>
+            </task>
+        </task>
+        <task id="42" name="KI-Stufe 2 fertiggestellt" color="#8cb6ce" meeting="true" start="2018-07-05" duration="0" complete="0" expand="true">
+            <notes><![CDATA[Prototyp 4:
+grobe Vollendung durch den 2. Schwierigkeitsgrad.
+spielbar auch auf grafischer Oberfläche.
+
+Nach diesem Prototyp nur kleine Feinschliffe.]]></notes>
+            <depend id="0" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="0" name="Programmierung Graphische Oberfläche" color="#000000" meeting="false" start="2018-07-05" duration="27" complete="0" expand="true">
+            <depend id="36" type="2" difference="0" hardness="Strong"/>
+            <task id="2" name="Spielfeld" color="#8cb6ce" meeting="false" start="2018-07-05" duration="6" complete="0" expand="true">
+                <depend id="5" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="5" name="Spielsteine" color="#8cb6ce" meeting="false" start="2018-07-13" duration="7" complete="0" expand="true">
+                <depend id="6" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="6" name="Tastendruck" color="#8cb6ce" meeting="false" start="2018-07-24" duration="7" complete="0" expand="true">
+                <depend id="8" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="8" name="GUI" color="#8cb6ce" meeting="false" start="2018-08-02" duration="7" complete="0" expand="true"/>
+        </task>
+        <task id="36" name="Oberfläche fertiggestellt" color="#8cb6ce" meeting="true" start="2018-08-13" duration="0" complete="0" expand="true">
+            <notes><![CDATA[Prototyp 2:
+Prototyp 1 erweitert durch spielbare grafische Oberfläche.
+--> Menu mit Auswahl-Möglichkeit für Spieler gegen Spieler, Spieler gegen Computer (Schwierigkeit 1) und Spieler gegen Computer (Schwierigkeit 2)
+--> Spieler gegen Spieler-Modus spielbar auf grafischen Feld nach Vorbild des Orginal-Feldes (Grüner Untergrund und 8x8 Felder)]]></notes>
+        </task>
+        <task id="34" name="Fertigstellen der Seminararbeit" color="#8cb6ce" meeting="false" start="2018-03-12" duration="150" complete="0" expand="true">
+            <task id="48" name="Vorgang_46" color="#8cb6ce" meeting="false" start="2018-03-12" duration="150" complete="0" expand="true"/>
+        </task>
+    </tasks>
+    <resources/>
+    <allocations/>
+    <vacations/>
+    <previous/>
+    <roles roleset-name="Default"/>
+    <roles roleset-name="SoftwareDevelopment"/>
+</project>
