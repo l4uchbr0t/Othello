@@ -23,17 +23,19 @@ public class AITurn extends Turn {
     }
 
 
-
     @Override
-    public void onTurn(){
+    public void onTurn() {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 pos.add(new Position(i, j));
             }
         }
-        doit();
+        if (validturnavailable()) {
+            doit();
+        }
 
     }
+
     public void doit() {
         if (pos.size() != 0) {
             if (validturn()) {
@@ -58,12 +60,27 @@ public class AITurn extends Turn {
     }
 
 
-    public boolean validturn(){
+    public boolean validturn() {
         Board b = Board.getBoard();
-        if (b.protectedPlaceBlock(team, pos.get(0))){
+        if (b.protectedPlaceBlock(team, pos.get(0))) {
             return true;
-        }else{
+        } else {
             return false;
+        }
+    }
+
+    public boolean validturnavailable() {
+        Board b = Board.getBoard();
+        while (true) {
+            if (b.protectedPlaceBlock(team, pos.get(0))) {
+                return true;
+            } else {
+                if (pos.size() == 0) {
+                    return false;
+                } else {
+                    pos.remove(0);
+                }
+            }
         }
     }
 }
