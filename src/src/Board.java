@@ -9,6 +9,7 @@ public class Board {
     int[][] board;
     int[] turnAmount;
     Turn whiteTurn, blackTurn;
+    int currentTeam;
 
 
     public Board(Turn whiteTurn, Turn blackTurn) {
@@ -22,21 +23,32 @@ public class Board {
         }
 
         turnAmount = new int[]{0, 0};
-
+        currentTeam = 0;
         Board = this;
         placeBlock(0, new Position(3, 3));
         placeBlock(0, new Position(4, 4));
         placeBlock(1, new Position(3, 4));
         placeBlock(1, new Position(4, 3));
-        gameloop();
+
     }
 
-    private void gameloop() {
+    /*private void gameloop() {
         print();
         whiteTurn.onTurn();
         this.print();
         blackTurn.onTurn();
         gameloop();
+    }
+    **/
+
+    public void onTurn(int x, int y){
+        if(currentTeam == 0){
+            whiteTurn.onTurn(x, y);
+            currentTeam = 1;
+        }else{
+            blackTurn.onTurn(x,y);
+            currentTeam = 0;
+        }
     }
 
     private boolean placeBlock(int team, Position position) {
@@ -52,14 +64,6 @@ public class Board {
         if (board[position.getX()][position.getY()] == -1 && castRays(team, position, false)) {
             castRays(team, position, true);
             return placeBlock(team, position);
-        }
-        return false;
-    }
-
-    public boolean tryProtectedPlaceBlock(int team, Position position) {
-        if (board[position.getX()][position.getY()] == -1 && castRays(team, position, false)) {
-            castRays(team, position, true);
-            return true;
         }
         return false;
     }
@@ -117,6 +121,18 @@ public class Board {
                     System.out.print(board[x][y] + " ");
             }
             System.out.println();
+        }
+    }
+
+    public int getstate(int i, int j){
+        return board[i][j];
+    }
+
+    public int getTurn() {
+        if(turnAmount[0] == turnAmount[1]){
+            return 0;
+        }else{
+            return 1;
         }
     }
 

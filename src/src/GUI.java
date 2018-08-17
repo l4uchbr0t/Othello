@@ -22,6 +22,8 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import javax.print.attribute.standard.RequestingUserName;
+
 public class GUI extends Application {
 
     private Board spielboard;
@@ -30,6 +32,9 @@ public class GUI extends Application {
     private AnchorPane anchor;
     private GridPane grid;
     private int[][] color;
+    private Circle[][] circles;
+    private Label team;
+    Runnable thread;
 
     public static void main(String[] args) {
         launch(args);
@@ -50,6 +55,23 @@ public class GUI extends Application {
         }
         grid.setLayoutX(100);
         grid.setLayoutY(100);
+
+        thread = new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    update();
+                    Thread.sleep(2000);
+
+                    spielboard.onTurn(0, 0);
+                    update();
+                } catch (InterruptedException e){
+                    e.printStackTrace();
+                }
+            }
+        };
+
+
 
         Rectangle rec = new Rectangle(200, 200, 800, 800);
         rec.setFill(Color.GREEN);
@@ -75,10 +97,17 @@ public class GUI extends Application {
             l++;
         }
 
+        team = new Label("Zug von Team Weiß");
+        team.setFont(new Font("Arial", 30));
+        team.setLayoutX(20);
+        team.setLayoutY(20);
+        group.getChildren().add(team);
 
         Button[][] btn = new Button[8][8];
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
+                final int x = i;
+                final int y = j;
                 btn[i][j] = new Button();
                 btn[i][j].setPrefHeight(100);
                 btn[i][j].setPrefWidth(100);
@@ -87,22 +116,29 @@ public class GUI extends Application {
                 btn[i][j].setOnAction(new EventHandler<ActionEvent>() {
                     @Override
                     public void handle(ActionEvent event) {
-                        System.out.println("Test!");
+                        setStone(x, y);
                     }
                 });
                 grid.add(btn[i][j], i, j);
             }
         }
 
-        Circle[][] circles = new Circle[8][8];
+        circles = new Circle[8][8];
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 circles[i][j] = new Circle();
                 circles[i][j].setRadius(49);
                 circles[i][j].setFill(Color.BLACK);
-                circles[i][j].setOpacity(0);
+                circles[i][j].setOpacity(100);
                 circles[i][j].setVisible(false);
                 grid.add(circles[i][j], i, j);
+            }
+        }
+
+        color = new int[8][8];
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                color[i][j] = -1;
             }
         }
 
@@ -116,8 +152,56 @@ public class GUI extends Application {
         primaryStage.show();
 
 
-        //spielboard = new Board(new UserTurn(0), new AITurn(1));
+        spielboard = new Board(new UserTurn(0), new AITurn(1));
+
+        update();
+
+    }
+
+    public void setStone(int x, int y) {
+        if (spielboard.blackTurn.getStance() == 1) {
+                if (spielboard.whiteTurn.validturn(x, y)) {
+                    spielboard.onTurn(x, y);
+
+                    thread.run();
 
 
+
+                }
+        } else {
+            if(spielboard.currentTeam == 0){
+                if (spielboard.whiteTurn.validturn(x, y)) {
+                    spielboard.onTurn(x, y);
+                    update();
+                }
+            }else {
+                if (spielboard.blackTurn.validturn(x, y)) {
+                    spielboard.onTurn(x, y);
+                    update();
+                }
+            }
+        }
+    }
+
+    public void update() {
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                color[i][j] = spielboard.getstate(i, j);
+                if (color[i][j] == 0) {
+                    circles[i][j].setFill(Color.WHITE);
+                    circles[i][j].setVisible(true);
+                } else if (color[i][j] == 1) {
+                    circles[i][j].setFill(Color.BLACK);
+                    circles[i][j].setVisible(true);
+                } else {
+                    circles[i][j].setVisible(false);
+                }
+            }
+        }
+        if(spielboard.currentTeam == 0){
+            team.setText("Zug von Team Weiß");
+        }else{
+            team.setText("Zug von Team Schwarz");
+        }
     }
 }
