@@ -53,6 +53,7 @@ public class Board {
         return false;
     }
 
+
     public boolean protectedPlaceBlock(int team, Position position) {
         if (board[position.getX()][position.getY()] == -1 && castRays(team, position, false)) {
             castRays(team, position, true);

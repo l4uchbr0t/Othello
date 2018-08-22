@@ -35,7 +35,8 @@ public class GUI extends Application {
     private int[][] color;
     private Circle[][] circles;
     private Label team;
-    Runnable thread;
+    ArrayList<Position> test;
+
 
     public static void main(String[] args) {
         launch(args);
@@ -44,6 +45,13 @@ public class GUI extends Application {
     @Override
     public void start(Stage primaryStage) {
         primaryStage.setTitle("Othello");
+
+        test = new ArrayList<>();
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                test.add(new Position(i, j));
+            }
+        }
 
         Group group = new Group();
 
@@ -137,7 +145,7 @@ public class GUI extends Application {
         primaryStage.show();
 
 
-        spielboard = new Board(new UserTurn(0), new UserTurn(1));
+        spielboard = new Board(new UserTurn(0), new AITurn(1));
 
         update();
 
@@ -145,70 +153,55 @@ public class GUI extends Application {
 
     public void setStone(int x, int y) {
         if (spielboard.blackTurn.getStance() == 1) {
-            if (!validturnavailable(0) && !validturnavailable(1)) {
-                //Gewinner zurückgeben
-            } else {
+            if (validturnavailable(0)) {
+                if (spielboard.whiteTurn.validturn(x, y)) {
+                    spielboard.onTurn(x, y, 0);
+                }else{
+                    return;
+                }
+            }
+            update();
+            if (validturnavailable(1)) {
+                spielboard.onTurn(0, 0, 1);
+            }
+            update();
+        } else {
+            if (spielboard.currentTeam == 0) {
                 if (validturnavailable(0)) {
                     if (spielboard.whiteTurn.validturn(x, y)) {
                         spielboard.onTurn(x, y, 0);
+                        update();
+                    }
+                } else {
+                    if (validturnavailable(1)) {
+                        spielboard.onTurn(x, y, 1);
+                        update();
                     }
                 }
-                update();
-                if (validturnavailable(1)) {
-                    spielboard.onTurn(0, 0, 1);
-                }
-                update();
-            }
-
-
-        } else {
-            if (!validturnavailable(0) && !validturnavailable(1)) {
-                //Gewinner zurückgeben
             } else {
-                if (spielboard.currentTeam == 0) {
+                if (validturnavailable(1)) {
+                    if (spielboard.blackTurn.validturn(x, y)) {
+                        spielboard.onTurn(x, y, 1);
+                        update();
+                    }
+                } else {
                     if (validturnavailable(0)) {
                         if (spielboard.whiteTurn.validturn(x, y)) {
                             spielboard.onTurn(x, y, 0);
                             update();
                         }
-                    } else {
-                        if (validturnavailable(1)) {
-                                spielboard.onTurn(x, y, 1);
-                                update();
-                        }
-                    }
-                } else {
-                    if (validturnavailable(1)) {
-                        if (spielboard.blackTurn.validturn(x, y)) {
-                            spielboard.onTurn(x, y, 1);
-                            update();
-                        }
-                    } else {
-                        if (validturnavailable(0)) {
-                            if (spielboard.whiteTurn.validturn(x, y)) {
-                                spielboard.onTurn(x, y, 0);
-                                update();
-                            }
-                        }
                     }
                 }
             }
-
         }
+
     }
 
 
     public boolean validturnavailable(int team) {
-        ArrayList<Position> test = new ArrayList<>();
-        for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 8; j++) {
-                test.add(new Position(i, j));
-            }
-        }
 
         for (Position p : test) {
-            Board s = spielboard;
-            if (s.protectedPlaceBlock(team, p)) {
+            if (spielboard.board[p.getX()][p.getY()] == -1 && spielboard.castRays(team, p, false)) {
                 return true;
             }
         }
