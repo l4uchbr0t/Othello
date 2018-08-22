@@ -20,9 +20,7 @@ public class UserTurn extends Turn {
                 pos.add(new Position(i, j));
             }
         }
-        //if (validturnavailable()) {
-            doit(x, y);
-        //}
+        doit(x, y);
 
     }
 
@@ -31,30 +29,26 @@ public class UserTurn extends Turn {
             boolean bol = validturn(x, y);
             if (bol){
                 Board.Board.protectedPlaceBlock(team, new Position(x, y));
-                return;
             }
 
 
     }
 
-    public boolean validturnavailable() {
-        Board b = Board.getBoard();
-        while (true) {
+    /*public boolean validturnavailable() {
+        if (pos.size() == 0) {
+            return false;
+        } else {
+            Board b = Board.getBoard();
             if (b.protectedPlaceBlock(team, pos.get(0))) {
                 return true;
             } else {
-                if (pos.size() == 0) {
-                    return false;
-                } else {
-                    pos.remove(0);
-                }
+                pos.remove(0);
+                return validturnavailable();
             }
-        }
-    }
 
-    public void setLine(String line) {
-        this.line = line;
-    }
+        }
+    }*/
+
 
     public int getStance(){
         return 0;

@@ -23,6 +23,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import javax.print.attribute.standard.RequestingUserName;
+import java.util.ArrayList;
 
 public class GUI extends Application {
 
@@ -55,22 +56,6 @@ public class GUI extends Application {
         }
         grid.setLayoutX(100);
         grid.setLayoutY(100);
-
-        thread = new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    update();
-                    Thread.sleep(2000);
-
-                    spielboard.onTurn(0, 0);
-                    update();
-                } catch (InterruptedException e){
-                    e.printStackTrace();
-                }
-            }
-        };
-
 
 
         Rectangle rec = new Rectangle(200, 200, 800, 800);
@@ -152,7 +137,7 @@ public class GUI extends Application {
         primaryStage.show();
 
 
-        spielboard = new Board(new UserTurn(0), new AITurn(1));
+        spielboard = new Board(new UserTurn(0), new UserTurn(1));
 
         update();
 
@@ -160,28 +145,77 @@ public class GUI extends Application {
 
     public void setStone(int x, int y) {
         if (spielboard.blackTurn.getStance() == 1) {
-                if (spielboard.whiteTurn.validturn(x, y)) {
-                    spielboard.onTurn(x, y);
-
-                    thread.run();
-
-
-
+            if (!validturnavailable(0) && !validturnavailable(1)) {
+                //Gewinner zurückgeben
+            } else {
+                if (validturnavailable(0)) {
+                    if (spielboard.whiteTurn.validturn(x, y)) {
+                        spielboard.onTurn(x, y, 0);
+                    }
                 }
+                update();
+                if (validturnavailable(1)) {
+                    spielboard.onTurn(0, 0, 1);
+                }
+                update();
+            }
+
+
         } else {
-            if(spielboard.currentTeam == 0){
-                if (spielboard.whiteTurn.validturn(x, y)) {
-                    spielboard.onTurn(x, y);
-                    update();
-                }
-            }else {
-                if (spielboard.blackTurn.validturn(x, y)) {
-                    spielboard.onTurn(x, y);
-                    update();
+            if (!validturnavailable(0) && !validturnavailable(1)) {
+                //Gewinner zurückgeben
+            } else {
+                if (spielboard.currentTeam == 0) {
+                    if (validturnavailable(0)) {
+                        if (spielboard.whiteTurn.validturn(x, y)) {
+                            spielboard.onTurn(x, y, 0);
+                            update();
+                        }
+                    } else {
+                        if (validturnavailable(1)) {
+                                spielboard.onTurn(x, y, 1);
+                                update();
+                        }
+                    }
+                } else {
+                    if (validturnavailable(1)) {
+                        if (spielboard.blackTurn.validturn(x, y)) {
+                            spielboard.onTurn(x, y, 1);
+                            update();
+                        }
+                    } else {
+                        if (validturnavailable(0)) {
+                            if (spielboard.whiteTurn.validturn(x, y)) {
+                                spielboard.onTurn(x, y, 0);
+                                update();
+                            }
+                        }
+                    }
                 }
             }
+
         }
     }
+
+
+    public boolean validturnavailable(int team) {
+        ArrayList<Position> test = new ArrayList<>();
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                test.add(new Position(i, j));
+            }
+        }
+
+        for (Position p : test) {
+            Board s = spielboard;
+            if (s.protectedPlaceBlock(team, p)) {
+                return true;
+            }
+        }
+        return false;
+
+    }
+
 
     public void update() {
         for (int i = 0; i < 8; i++) {
@@ -198,9 +232,9 @@ public class GUI extends Application {
                 }
             }
         }
-        if(spielboard.currentTeam == 0){
+        if (spielboard.currentTeam == 0) {
             team.setText("Zug von Team Weiß");
-        }else{
+        } else {
             team.setText("Zug von Team Schwarz");
         }
     }

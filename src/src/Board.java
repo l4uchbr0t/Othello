@@ -32,17 +32,10 @@ public class Board {
 
     }
 
-    /*private void gameloop() {
-        print();
-        whiteTurn.onTurn();
-        this.print();
-        blackTurn.onTurn();
-        gameloop();
-    }
-    **/
 
-    public void onTurn(int x, int y){
-        if(currentTeam == 0){
+
+    public void onTurn(int x, int y, int team){
+        if(team == 0){
             whiteTurn.onTurn(x, y);
             currentTeam = 1;
         }else{
