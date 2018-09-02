@@ -1,4 +1,3 @@
-
 package src;
 
 import java.util.ArrayList;
@@ -32,16 +31,75 @@ public class Board {
 
     }
 
-
-
-    public void onTurn(int x, int y, int team){
-        if(team == 0){
-            whiteTurn.onTurn(x, y);
-            currentTeam = 1;
-        }else{
-            blackTurn.onTurn(x,y);
-            currentTeam = 0;
+    public String getWinner() {
+        int white = 0;
+        int black = 0;
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                if (board[i][j] == 0) {
+                    white++;
+                } else if (board[i][j] == 1) {
+                    black++;
+                }
+            }
         }
+
+        if (black > white) {
+            return "Der Gewinner ist Spieler 2 mit " + black + " Steinen!";
+        } else if (white > black) {
+            return "Der Gewinner ist Spieler 1 mit " + white + " Steinen!";
+        } else {
+            return "Unentschieden!";
+        }
+    }
+
+    public String getWinnerATM() {
+        int white = 0;
+        int black = 0;
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                if (board[i][j] == 0) {
+                    white++;
+                } else if (board[i][j] == 1) {
+                    black++;
+                }
+            }
+        }
+
+        if (black > white) {
+            return "Der Gewinner wäre Spieler 2 mit " + black + " Steinen gewesen!";
+        } else if (white > black) {
+            return "Der Gewinner wäre Spieler 1 mit " + white + " Steinen gewesen!";
+        } else {
+            return "Es wäre ein Unentschieden gewesen!";
+        }
+    }
+
+    public int countStones(int team){
+        int count = 0;
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                if (board[i][j] == 0 && team == 0) {
+                    count++;
+                } else if (board[i][j] == 1 && team == 1) {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+
+    public void onTurn(int x, int y, int team) {
+        if (team == 0) {
+            whiteTurn.onTurn(x, y);
+        } else {
+            blackTurn.onTurn(x, y);
+
+        }
+    }
+
+    public void setCurrentTeam(int i){
+        currentTeam = i;
     }
 
     private boolean placeBlock(int team, Position position) {
@@ -118,14 +176,14 @@ public class Board {
         }
     }
 
-    public int getstate(int i, int j){
+    public int getstate(int i, int j) {
         return board[i][j];
     }
 
     public int getTurn() {
-        if(turnAmount[0] == turnAmount[1]){
+        if (turnAmount[0] == turnAmount[1]) {
             return 0;
-        }else{
+        } else {
             return 1;
         }
     }
