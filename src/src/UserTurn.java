@@ -34,6 +34,20 @@ public class UserTurn extends Turn {
 
     }
 
+    /*public boolean validturnavailable() {
+        if (pos.size() == 0) {
+            return false;
+        } else {
+            Board b = Board.getBoard();
+            if (b.protectedPlaceBlock(team, pos.get(0))) {
+                return true;
+            } else {
+                pos.remove(0);
+                return validturnavailable();
+            }
+
+        }
+    }*/
 
 
     public int getStance(){
