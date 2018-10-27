@@ -6,6 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="82980112-62b9-45bf-9246-3d7b24423217" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/.idea/artifacts/Othello_jar.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
@@ -35,6 +36,9 @@
       <change beforePath="$PROJECT_DIR$/src/src/UserTurn.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/src/main.java" beforeDir="false" />
     </list>
+=======
+    <list default="true" id="09267958-3924-4356-bf8a-c8f525f25960" name="Default Changelist" comment="" />
+>>>>>>> fda6457e2e5851bd432dae1f4d045237df7818a0
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -46,37 +50,72 @@
     <session id="337954930">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+<<<<<<< HEAD
           <entry key="project.closed" value="2" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.opened" value="3" />
+=======
+          <entry key="project.closed" value="3" />
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.5" value="1" />
+          <entry key="project.open.time.7" value="1" />
+          <entry key="project.open.time.9" value="1" />
+          <entry key="project.opened" value="4" />
+>>>>>>> fda6457e2e5851bd432dae1f4d045237df7818a0
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+<<<<<<< HEAD
           <entry key="java" value="18" />
+=======
+          <entry key="java" value="20" />
+>>>>>>> fda6457e2e5851bd432dae1f4d045237df7818a0
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
+<<<<<<< HEAD
           <entry key="JAVA" value="18" />
+=======
+          <entry key="JAVA" value="20" />
+>>>>>>> fda6457e2e5851bd432dae1f4d045237df7818a0
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
+<<<<<<< HEAD
           <entry key="java" value="682" />
+=======
+          <entry key="java" value="6738" />
+>>>>>>> fda6457e2e5851bd432dae1f4d045237df7818a0
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
+<<<<<<< HEAD
           <entry key="JAVA" value="682" />
+=======
+          <entry key="JAVA" value="6738" />
+        </counts>
+      </usages-collector>
+    </session>
+    <session id="1466108219">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.opened" value="1" />
+>>>>>>> fda6457e2e5851bd432dae1f4d045237df7818a0
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+<<<<<<< HEAD
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AITurnEasy.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -109,20 +148,57 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
               <caret line="17" column="49" selection-start-line="17" selection-start-column="49" selection-end-line="17" selection-end-column="49" />
+=======
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/src/GUI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="772">
+              <caret line="338" selection-start-line="338" selection-end-line="338" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_181/javafx-src.zip!/javafx/event/Event.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2737">
+              <caret line="198" column="5" selection-start-line="198" selection-start-column="5" selection-end-line="198" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_181/javafx-src.zip!/javafx/scene/Scene.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="38539">
+              <caret line="2494" selection-start-line="2494" selection-end-line="2494" />
+              <folding>
+                <element signature="e#66572#66573#0" expanded="true" />
+                <element signature="e#66618#66619#0" expanded="true" />
+              </folding>
+>>>>>>> fda6457e2e5851bd432dae1f4d045237df7818a0
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/src/MenuUI.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="247">
               <caret line="90" column="21" lean-forward="true" selection-start-line="90" selection-start-column="21" selection-end-line="90" selection-end-column="21" />
+=======
+        <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_181/javafx-src.zip!/javafx/scene/Node.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="130356">
+              <caret line="8411" selection-start-line="8411" selection-end-line="8411" />
+>>>>>>> fda6457e2e5851bd432dae1f4d045237df7818a0
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/src/Position.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="170">
@@ -159,15 +235,82 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="374">
               <caret line="25" column="35" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="35" />
+=======
+        <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_181/javafx-src.zip!/javafx/scene/control/Button.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2278">
+              <caret line="186" selection-start-line="186" selection-end-line="186" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/src/personalizeUI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2890">
+              <caret line="190" column="171" selection-start-line="190" selection-start-column="171" selection-end-line="190" selection-end-column="171" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/src/MenuUI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1156">
+              <caret line="101" column="74" selection-start-line="101" selection-start-column="74" selection-end-line="101" selection-end-column="74" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/src/AITurnHard.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/src/selectDifficultyUI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="663">
+              <caret line="59" column="81" selection-start-line="59" selection-start-column="81" selection-end-line="59" selection-end-column="81" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/src/Board.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2363">
+              <caret line="139" column="24" selection-start-line="139" selection-start-column="24" selection-end-line="139" selection-end-column="24" />
+>>>>>>> fda6457e2e5851bd432dae1f4d045237df7818a0
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
+<<<<<<< HEAD
   <component name="FindInProjectRecents">
     <findStrings>
       <find>UvA1</find>
+=======
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaFXApplication" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>stoneswhite</find>
+      <find>test</find>
+      <find>ColorsTwo</find>
+>>>>>>> fda6457e2e5851bd432dae1f4d045237df7818a0
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -176,6 +319,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/src/src/MenuUI.java" />
         <option value="$PROJECT_DIR$/src/src/selectDifficultyUI.java" />
         <option value="$PROJECT_DIR$/src/AITurnEasy.java" />
@@ -189,21 +333,48 @@
         <option value="$PROJECT_DIR$/src/MenuUI.java" />
         <option value="$PROJECT_DIR$/src/UserTurn.java" />
         <option value="$PROJECT_DIR$/src/Board.java" />
+=======
+        <option value="$PROJECT_DIR$/src/src/RunnableDemo.java" />
+        <option value="$PROJECT_DIR$/src/src/Turn.java" />
+        <option value="$PROJECT_DIR$/src/src/UserTurn.java" />
+        <option value="$PROJECT_DIR$/src/src/AITurn2.java" />
+        <option value="$PROJECT_DIR$/src/src/AITurnEasy.java" />
+        <option value="$PROJECT_DIR$/src/src/AITurn.java" />
+        <option value="$PROJECT_DIR$/src/src/AITurnHard.java" />
+        <option value="$PROJECT_DIR$/src/src/gui3.java" />
+        <option value="$PROJECT_DIR$/src/src/gui2.java" />
+        <option value="$PROJECT_DIR$/src/src/main.java" />
+        <option value="$PROJECT_DIR$/src/src/MenuUI.java" />
+        <option value="$PROJECT_DIR$/src/src/selectDifficultyUI.java" />
+        <option value="$PROJECT_DIR$/src/src/personalizeUI.java" />
+        <option value="$PROJECT_DIR$/src/src/Board.java" />
+        <option value="$PROJECT_DIR$/src/src/GUI.java" />
+>>>>>>> fda6457e2e5851bd432dae1f4d045237df7818a0
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
+<<<<<<< HEAD
     <option name="x" value="-12" />
     <option name="y" value="-12" />
     <option name="width" value="2186" />
     <option name="height" value="3186" />
+=======
+    <option name="x" value="-10" />
+    <option name="width" value="1642" />
+    <option name="height" value="2092" />
+>>>>>>> fda6457e2e5851bd432dae1f4d045237df7818a0
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< HEAD
       <pane id="AndroidView" />
+=======
+      <pane id="Scope" />
+>>>>>>> fda6457e2e5851bd432dae1f4d045237df7818a0
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -220,12 +391,21 @@
           <select />
         </subPane>
       </pane>
+<<<<<<< HEAD
       <pane id="Scope" />
+=======
+      <pane id="AndroidView" />
+>>>>>>> fda6457e2e5851bd432dae1f4d045237df7818a0
       <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+<<<<<<< HEAD
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540381077811" />
+=======
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1535881969235" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+>>>>>>> fda6457e2e5851bd432dae1f4d045237df7818a0
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -242,10 +422,79 @@
       </list>
     </option>
   </component>
+<<<<<<< HEAD
   <component name="RunManager" selected="Application.main (1)">
     <configuration name="main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main" />
       <module name="Othello" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="src.main" />
+=======
+  <component name="RunManager" selected="Application.main">
+    <configuration name="GUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="src.GUI" />
+>>>>>>> fda6457e2e5851bd432dae1f4d045237df7818a0
+      <module name="Othello" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="src.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+<<<<<<< HEAD
+    </configuration>
+    <list>
+      <item itemvalue="Application.main" />
+      <item itemvalue="Application.main (1)" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.main (1)" />
+        <item itemvalue="Application.main" />
+=======
+    </configuration>
+    <configuration name="MenuUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="src.MenuUI" />
+      <module name="Othello" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="src.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="gui2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="src.gui2" />
+      <module name="Othello" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="src.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="gui3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="src.gui3" />
+      <module name="Othello" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="src.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -264,29 +513,45 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.GUI" />
+      <item itemvalue="Application.gui2" />
+      <item itemvalue="Application.gui3" />
+      <item itemvalue="Application.MenuUI" />
       <item itemvalue="Application.main" />
-      <item itemvalue="Application.main (1)" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.main (1)" />
         <item itemvalue="Application.main" />
+        <item itemvalue="Application.MenuUI" />
+        <item itemvalue="Application.gui2" />
+        <item itemvalue="Application.gui3" />
+        <item itemvalue="Application.GUI" />
+>>>>>>> fda6457e2e5851bd432dae1f4d045237df7818a0
       </list>
     </recent_temporary>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+<<<<<<< HEAD
       <changelist id="82980112-62b9-45bf-9246-3d7b24423217" name="Default Changelist" comment="" />
       <created>1540306172886</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1540306172886</updated>
+=======
+      <changelist id="09267958-3924-4356-bf8a-c8f525f25960" name="Default Changelist" comment="" />
+      <created>1535660999232</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1535660999232</updated>
+>>>>>>> fda6457e2e5851bd432dae1f4d045237df7818a0
     </task>
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1633" height="1053" extended-state="6" />
     <layout>
+<<<<<<< HEAD
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17777778" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
@@ -298,6 +563,19 @@
       <window_info anchor="bottom" id="Find" order="1" weight="0.329718" />
       <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.329718" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+=======
+      <window_info id="Image Layers" order="0" />
+      <window_info id="Designer" order="1" />
+      <window_info id="UI Designer" order="2" />
+      <window_info id="Capture Tool" order="3" />
+      <window_info id="Favorites" order="4" side_tool="true" />
+      <window_info id="Structure" order="5" side_tool="true" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="6" visible="true" weight="0.18984127" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.329718" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.25921908" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3991323" />
+>>>>>>> fda6457e2e5851bd432dae1f4d045237df7818a0
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -319,6 +597,7 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/src/main.java" />
     <entry file="file://$PROJECT_DIR$/src/src/MenuUI.java" />
     <entry file="file://$PROJECT_DIR$/src/src/selectDifficultyUI.java" />
@@ -393,6 +672,120 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/src/RunnableDemo.java" />
+    <entry file="file://$PROJECT_DIR$/src/src/Turn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="15" column="35" selection-start-line="15" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/src/AITurnEasy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/src/UserTurn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="534">
+          <caret line="35" selection-start-line="35" selection-end-line="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_181/javafx-src.zip!/javafx/application/Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="144" column="22" selection-start-line="144" selection-start-column="22" selection-end-line="144" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/src/main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="13" column="21" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#252#253#0" expanded="true" />
+            <element signature="e#280#281#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/src/GUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="772">
+          <caret line="338" selection-start-line="338" selection-end-line="338" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_181/javafx-src.zip!/javafx/event/Event.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2737">
+          <caret line="198" column="5" selection-start-line="198" selection-start-column="5" selection-end-line="198" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_181/javafx-src.zip!/javafx/scene/Scene.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38539">
+          <caret line="2494" selection-start-line="2494" selection-end-line="2494" />
+          <folding>
+            <element signature="e#66572#66573#0" expanded="true" />
+            <element signature="e#66618#66619#0" expanded="true" />
+          </folding>
+>>>>>>> fda6457e2e5851bd432dae1f4d045237df7818a0
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_181/javafx-src.zip!/javafx/scene/Node.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130356">
+          <caret line="8411" selection-start-line="8411" selection-end-line="8411" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_181/javafx-src.zip!/javafx/scene/control/Button.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2278">
+          <caret line="186" selection-start-line="186" selection-end-line="186" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/src/personalizeUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2890">
+          <caret line="190" column="171" selection-start-line="190" selection-start-column="171" selection-end-line="190" selection-end-column="171" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/src/MenuUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1156">
+          <caret line="101" column="74" selection-start-line="101" selection-start-column="74" selection-end-line="101" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/src/AITurnHard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/src/selectDifficultyUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="59" column="81" selection-start-line="59" selection-start-column="81" selection-end-line="59" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/src/Board.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2363">
+          <caret line="139" column="24" selection-start-line="139" selection-start-column="24" selection-end-line="139" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -475,7 +868,10 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
+<<<<<<< HEAD
           <last-edited>Othello</last-edited>
+=======
+>>>>>>> fda6457e2e5851bd432dae1f4d045237df7818a0
           <splitter-proportions>
             <option name="proportions">
               <list>

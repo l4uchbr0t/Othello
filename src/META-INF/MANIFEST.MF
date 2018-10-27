@@ -1,3 +1,7 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Main-Class: main
+=======
+Main-Class: src.main
+>>>>>>> fda6457e2e5851bd432dae1f4d045237df7818a0
 
