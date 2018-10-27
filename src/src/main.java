@@ -1,10 +1,16 @@
-
 package src;
 
-public class main {
+import javafx.application.Application;
+import javafx.stage.Stage;
+
+public class main extends Application {
+
     public static void main(String[] args) {
-        new Board(new UserTurn(0), new AITurn(1));
+        launch(args);
     }
 
-
+    @Override
+    public void start(Stage primaryStage) {
+        new MenuUI();
+    }
 }

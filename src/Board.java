@@ -1,15 +1,14 @@
-package src;
 
 import java.util.ArrayList;
 
 public class Board {
-    public static src.Board Board;
+    public static Board Board;
 
     int[][] board;
     int[] turnAmount;
     Turn whiteTurn, blackTurn;
     int currentTeam;
-
+    private ArrayList<Position> checkposition;
 
     public Board(Turn whiteTurn, Turn blackTurn) {
         this.whiteTurn = whiteTurn;
@@ -29,20 +28,27 @@ public class Board {
         placeBlock(1, new Position(3, 4));
         placeBlock(1, new Position(4, 3));
 
+        checkposition = new ArrayList<>();
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                checkposition.add(new Position(i, j));
+            }
+        }
+
+    }
+
+    public boolean validturnavailable(int teamint) {
+        for (Position p : checkposition) {
+            if (board[p.getX()][p.getY()] == -1 && castRays(teamint, p, false)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public String getWinner() {
-        int white = 0;
-        int black = 0;
-        for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 8; j++) {
-                if (board[i][j] == 0) {
-                    white++;
-                } else if (board[i][j] == 1) {
-                    black++;
-                }
-            }
-        }
+        int white = countStones(0);
+        int black = countStones(1);
 
         if (black > white) {
             return "Der Gewinner ist Spieler 2 mit " + black + " Steinen!";
@@ -54,17 +60,8 @@ public class Board {
     }
 
     public String getWinnerATM() {
-        int white = 0;
-        int black = 0;
-        for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 8; j++) {
-                if (board[i][j] == 0) {
-                    white++;
-                } else if (board[i][j] == 1) {
-                    black++;
-                }
-            }
-        }
+        int white = countStones(0);
+        int black = countStones(1);
 
         if (black > white) {
             return "Der Gewinner wäre Spieler 2 mit " + black + " Steinen gewesen!";
@@ -94,7 +91,6 @@ public class Board {
             whiteTurn.onTurn(x, y);
         } else {
             blackTurn.onTurn(x, y);
-
         }
     }
 
@@ -149,46 +145,35 @@ public class Board {
         Position gradPos = new Position(position.getX(), position.getY());
 
 
-        while (true) {
+        for (int i = 0; i < 64; i++) {
             gradPos = gradPos.addGradient(gradient);
             if (gradPos.valid() && gradPos.getX() < 8 && gradPos.getY() < 8) {
                 if (board[gradPos.getX()][gradPos.getY()] == -1) {
                     break;
-                } else if (board[gradPos.getX()][gradPos.getY()] == team) return replaceBlocks;
-                else if (board[gradPos.getX()][gradPos.getY()] == (1 - team)) replaceBlocks.add(gradPos);
-            } else break;
+                } else if (board[gradPos.getX()][gradPos.getY()] == team){
+                    return replaceBlocks;
+                }
+                else if (board[gradPos.getX()][gradPos.getY()] == (1 - team)){
+                    replaceBlocks.add(gradPos);
+                }
+            } else {
+                break;
+            }
         }
 
         return new ArrayList();
     }
 
-    private void print() {
-        System.out.println("  0 1 2 3 4 5 6 7");
-        for (int x = 0; x < board.length; x++) {
-            System.out.print(x + " ");
-            for (int y = 0; y < board[x].length; y++) {
-                if (board[x][y] == -1)
-                    System.out.print("- ");
-                else
-                    System.out.print(board[x][y] + " ");
-            }
-            System.out.println();
-        }
-    }
 
     public int getstate(int i, int j) {
         return board[i][j];
     }
 
-    public int getTurn() {
-        if (turnAmount[0] == turnAmount[1]) {
-            return 0;
-        } else {
-            return 1;
-        }
+    public int getturnamount(int team){
+        return turnAmount[team];
     }
 
-    public static src.Board getBoard() {
+    public static Board getBoard() {
         return Board;
     }
 

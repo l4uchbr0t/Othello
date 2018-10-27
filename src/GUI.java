@@ -1,28 +1,28 @@
-package src;
+
 
 import javafx.application.Application;
-import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.geometry.HPos;
-import javafx.geometry.Pos;
+import javafx.geometry.*;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.RowConstraints;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.stage.WindowEvent;
 
 import java.util.ArrayList;
@@ -30,42 +30,30 @@ import java.util.ArrayList;
 public class GUI extends Application {
 
     private Board spielboard;
-    private Rectangle rec;
     private Line[] lines;
-    private AnchorPane anchor;
-    private GridPane grid;
+    private GridPane grid, alligngrid;
     private int[][] color;
     private Circle[][] circles;
-    ArrayList<Position> checkposition;
     private Label stonecount, turncount;
     private Paint colorwhite, colorblack;
+    private Turn Black, White;
+    private Group group;
+    private Button backtomenu, reset;
+    private Rectangle rec;
+    private Button[][] btn;
+    private ColumnConstraints[] column;
 
-
-    public GUI(Turn White, Turn Black, Paint one, Paint two) {
-        start(new Stage(), White, Black, one, two);
-    }
-
-    public void start(Stage primaryStage) {
-
-    }
-
-    public void start(Stage primaryStage, Turn White, Turn Black, Paint one, Paint two) {
-        primaryStage.setTitle("Othello");
+    public GUI(Turn WhiteNew, Turn BlackNew, Paint one, Paint two, Stage stage) { //Konstruktor
+        this.White = WhiteNew;
+        this.Black = BlackNew;
 
         colorwhite = one;
         colorblack = two;
 
-        checkposition = new ArrayList<>();
-        for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 8; j++) {
-                checkposition.add(new Position(i, j));
-            }
-        }
+        group = new Group();
 
-        Group group = new Group();
-
-        GridPane grid = new GridPane();
-        grid.setAlignment(Pos.BOTTOM_CENTER);
+        grid = new GridPane();
+        grid.setAlignment(Pos.CENTER);
         grid.setPrefSize(1000, 1000);
         for (int i = 0; i < 8; i++) {
             grid.addColumn(i);
@@ -74,8 +62,15 @@ public class GUI extends Application {
         grid.setLayoutX(0);
         grid.setLayoutY(50);
 
-        Rectangle rec = new Rectangle(100, 150, 800, 800);
-        rec.setFill(Color.rgb(126, 192, 238));
+        alligngrid = new GridPane();
+        alligngrid.setPadding(new Insets(15));
+        GridPane.setHalignment(group, HPos.CENTER);
+        GridPane.setValignment(group, VPos.CENTER);
+        alligngrid.getRowConstraints().add(0, new RowConstraints(75));
+        alligngrid.setAlignment(Pos.CENTER);
+
+        rec = new Rectangle(100, 150, 800, 800);
+        rec.setFill(Color.rgb(100, 14, 14));
         group.getChildren().add(rec);
 
         lines = new Line[18];
@@ -102,15 +97,17 @@ public class GUI extends Application {
         turncount.setFont(new Font("MPLUSRounded1c-Regular", 30));
         turncount.setLayoutX(100);
         turncount.setLayoutY(25);
+        turncount.setTextFill(Color.rgb(255,255,255));
         group.getChildren().add(turncount);
 
         stonecount = new Label("Derzeit: ");
         stonecount.setFont(new Font("MPLUSRounded1c-Regular", 30));
         stonecount.setLayoutX(300);
         stonecount.setLayoutY(25);
+        stonecount.setTextFill(Color.rgb(255,255,255));
         group.getChildren().add(stonecount);
 
-        Button[][] btn = new Button[8][8];
+        btn = new Button[8][8];
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 final int x = i;
@@ -130,7 +127,7 @@ public class GUI extends Application {
             }
         }
 
-        Button reset = new Button("Zurücksetzen");
+        reset = new Button("Zurücksetzen");
         reset.setPrefSize(150, 70);
         reset.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -149,21 +146,18 @@ public class GUI extends Application {
         reset.setAlignment(Pos.CENTER);
         reset.setLayoutX(525);
         reset.setLayoutY(35);
+        reset.setStyle("-fx-background-color:#400101; -fx-opacity:1; -fx-border-color:#FFFFFF;");
+        reset.setTextFill(Color.rgb(255,255,255));
 
-        Button backtomenu = new Button("Zurück zum Menü");
+        backtomenu = new Button("Zurück zum Menü");
         backtomenu.setPrefSize(150, 70);
-        backtomenu.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                primaryStage.close();
-                new MenuUI();
-            }
-        });
+
         backtomenu.setFont(new Font("MPLUSRounded1c-Regular", 15));
         backtomenu.setAlignment(Pos.CENTER);
         backtomenu.setLayoutX(725);
         backtomenu.setLayoutY(35);
-
+        backtomenu.setStyle("-fx-background-color:#400101; -fx-opacity:1; -fx-border-color:#FFFFFF;");
+        backtomenu.setTextFill(Color.rgb(255,255,255));
 
         circles = new Circle[8][8];
         for (int i = 0; i < 8; i++) {
@@ -185,21 +179,39 @@ public class GUI extends Application {
             }
         }
 
-        ColumnConstraints column[] = new ColumnConstraints[8];
+        column = new ColumnConstraints[8];
         for (int i = 0; i < column.length; i++) {
             column[i] = new ColumnConstraints();
             column[i].setHalignment(HPos.CENTER);
             grid.getColumnConstraints().add(column[i]);
         }
 
-        grid.setAlignment(Pos.CENTER);
-
         group.getChildren().add(grid);
         group.getChildren().add(reset);
         group.getChildren().add(backtomenu);
 
-        Scene scene = new Scene(group, 1000, 1000, Color.rgb(176, 226, 233));
+        alligngrid.add(group, 1, 0);
+        alligngrid.setStyle("-fx-background-color:#303030; -fx-opacity:1;");
+
+        start(stage);
+    }
+
+    public void start(Stage primaryStage) {
+
+        backtomenu.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                new MenuUI(primaryStage);
+            }
+        });
+
+        Scene scene = new Scene(alligngrid, 1000, 1000, Color.rgb(176, 226, 233));
         primaryStage.setScene(scene);
+
+
+        primaryStage.centerOnScreen();
+
+        primaryStage.setMaximized(true);
 
         primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override
@@ -207,8 +219,6 @@ public class GUI extends Application {
                 primaryStage.close();
             }
         });
-
-        primaryStage.show();
 
         spielboard = new Board(White, Black);
 
@@ -218,24 +228,25 @@ public class GUI extends Application {
 
     public void setStone(int x, int y) {
         if (spielboard.blackTurn.getStance() == 1) {
-            if (validturnavailable(0)) {
+            if (spielboard.validturnavailable(0)) {
                 if (spielboard.whiteTurn.validturn(x, y)) {
                     spielboard.onTurn(x, y, 0);
                 } else {
                     return;
                 }
                 spielboard.setCurrentTeam(1);
-            }else{
+            } else {
                 spielboard.setCurrentTeam(1);
             }
             update();
 
-
-            if (validturnavailable(1)) {
-                spielboard.onTurn(0, 0, 1);
-                spielboard.setCurrentTeam(0);
-            }else{
-                spielboard.setCurrentTeam(0);
+            if (spielboard.countStones(0) != 2 || spielboard.countStones(1) != 2) {
+                if (spielboard.validturnavailable(1)) {
+                    spielboard.onTurn(0, 0, 1);
+                    spielboard.setCurrentTeam(0);
+                } else {
+                    spielboard.setCurrentTeam(0);
+                }
             }
 
 
@@ -261,37 +272,32 @@ public class GUI extends Application {
 
         } else {
             if (spielboard.currentTeam == 0) {
-                if (validturnavailable(0)) {
+                if (spielboard.validturnavailable(0)) {
                     if (spielboard.whiteTurn.validturn(x, y)) {
                         spielboard.onTurn(x, y, 0);
                         spielboard.setCurrentTeam(1);
                     }
                 } else {
-                    spielboard.setCurrentTeam(1);
+                    if (spielboard.validturnavailable(1)) {
+                        spielboard.setCurrentTeam(1);
+                    }
                 }
                 update();
             } else {
-                if (validturnavailable(1)) {
+                if (spielboard.validturnavailable(1)) {
                     if (spielboard.blackTurn.validturn(x, y)) {
                         spielboard.onTurn(x, y, 1);
                         spielboard.setCurrentTeam(0);
                     }
                 } else {
-                    spielboard.setCurrentTeam(0);
+                    if (spielboard.validturnavailable(0)) {
+                        spielboard.setCurrentTeam(0);
+                    }
                 }
                 update();
             }
         }
 
-    }
-
-    public boolean validturnavailable(int teamint) {
-        for (Position p : checkposition) {
-            if (spielboard.board[p.getX()][p.getY()] == -1 && spielboard.castRays(teamint, p, false)) {
-                return true;
-            }
-        }
-        return false;
     }
 
     public void update() {
@@ -314,20 +320,23 @@ public class GUI extends Application {
 
         writeturncount();
 
-        stonecount.setText(spielboard.countStones(0) + " Steine \n" +  + spielboard.countStones(1) + " Steine");
+        stonecount.setText(spielboard.countStones(0) + " Steine \n" + +spielboard.countStones(1) + " Steine");
 
 
-        if (!validturnavailable(0) && !validturnavailable(1)) {
+        if (!spielboard.validturnavailable(0) && !spielboard.validturnavailable(1)) {
 
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Spiel beendet!");
             alert.setHeaderText("Das Spiel ist beendet!");
             alert.setContentText(spielboard.getWinner());
 
             alert.showAndWait();
+            spielboard = new Board(White, Black);
+            update();
         }
     }
-    public void writeturncount(){
+
+    public void writeturncount() {
         if (spielboard.currentTeam == 0) {
             turncount.setText("> Spieler 1: \nSpieler 2: ");
 
